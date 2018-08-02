@@ -17,7 +17,7 @@ import java.lang.reflect.Field;
 /**
  * @author : YangHaoYi on 2018/8/2.
  *         Email  :  yang.haoyi@qq.com
- *         Description :
+ *         Description :在 Android P 版本中，谷歌加入了非 SDK 接口使用限制，无论是通过调用、反射还是JNI等方式，开发者都无法对非 SDK 接口进行访问
  *         Change : YangHaoYi on 2018/8/2.
  *         Version : V 1.0
  */

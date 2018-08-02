@@ -10,7 +10,7 @@ import com.yanghaoyi.androidpdemo.activity.HomeActivity;
 /**
  * @author : YangHaoYi on 2018/8/2.
  *         Email  :  yang.haoyi@qq.com
- *         Description :
+ *         Description :从Android P开始，只有当Intent flag中指定了FLAG_ACTIVITY_NEW_TASK，才允许在非Activity场景启动Activity。
  *         Change : YangHaoYi on 2018/8/2.
  *         Version : V 1.0
  */

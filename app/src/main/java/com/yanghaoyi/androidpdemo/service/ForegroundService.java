@@ -19,7 +19,7 @@ import com.yanghaoyi.androidpdemo.activity.ForegroundActivity;
 /**
  * @author : YangHaoYi on 2018/8/1.
  *         Email  :  yang.haoyi@qq.com
- *         Description :
+ *         Description :在安卓P版本之后，必须要授予FOREGROUND_SERVICE权限，才能够使用前台服务，否则会抛出异常。
  *         Change : YangHaoYi on 2018/8/1.
  *         Version : V 1.0
  */
