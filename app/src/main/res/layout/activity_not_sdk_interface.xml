@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvShowDialog"
+        android:layout_width="match_parent"
+        android:background="#1FA67B"
+        android:text="修改系统Dialog字体"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:layout_height="50dp" />
+
+
+
+    <android.support.v4.view.ViewPager
+        android:layout_marginTop="50dp"
+        android:id="@+id/vpChangeScroller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+
+
+</FrameLayout>

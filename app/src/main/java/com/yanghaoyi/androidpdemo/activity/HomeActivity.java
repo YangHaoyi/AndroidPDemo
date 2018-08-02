@@ -17,7 +17,7 @@ import org.greenrobot.eventbus.Subscribe;
 /**
  * @author : YangHaoYi on 2018/8/1.
  *         Email  :  yang.haoyi@qq.com
- *         Description :
+ *         Description :在开发过程中，开发者如果调用了非 SDK 接口，会导致应用出现crash，无法启动；或在运行过程中出现崩溃、闪退等现象
  *         Change : YangHaoYi on 2018/8/1.
  *         Version : V 1.0
  */
@@ -28,6 +28,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private TextView tvToDialog;
     private TextView tvToServiceToActivity;
     private TextView tvToBackgroundStartService;
+    private TextView tvToNotSDKPage;
 
 
     @Override
@@ -48,6 +49,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         tvToDialog = findViewById(R.id.tvToDialog);
         tvToServiceToActivity = findViewById(R.id.tvToServiceToActivity);
         tvToBackgroundStartService = findViewById(R.id.tvToBackgroundStartService);
+        tvToNotSDKPage = findViewById(R.id.tvToNotSDKPage);
     }
 
     private void initEvent(){
@@ -57,6 +59,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         tvToDialog.setOnClickListener(this);
         tvToServiceToActivity.setOnClickListener(this);
         tvToBackgroundStartService.setOnClickListener(this);
+        tvToNotSDKPage.setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +84,10 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case R.id.tvToBackgroundStartService:
                 intent = new Intent(HomeActivity.this,BackGroundStartServiceActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tvToNotSDKPage:
+                intent = new Intent(HomeActivity.this,NotSDKInterfaceActivity.class);
                 startActivity(intent);
                 break;
             default:

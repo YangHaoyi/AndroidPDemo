@@ -61,5 +61,17 @@
         android:layout_height="1dp"
         android:background="#E2E2E2"/>
 
+    <TextView
+        android:id="@+id/tvToNotSDKPage"
+        android:gravity="center"
+        android:text="非SDK接口"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E2E2E2"/>
+
 
 </LinearLayout>
