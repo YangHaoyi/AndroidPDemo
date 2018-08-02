@@ -8,11 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yanghaoyi.androidpdemo.R;
-import com.yanghaoyi.androidpdemo.event.BackgroundEvent;
-import com.yanghaoyi.androidpdemo.service.BackgroundService;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
 /**
  * @author : YangHaoYi on 2018/8/1.
@@ -53,7 +48,6 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void initEvent(){
-        EventBus.getDefault().register(this);
         tvToForeground.setOnClickListener(this);
         tvToBroadCast.setOnClickListener(this);
         tvToDialog.setOnClickListener(this);
@@ -93,21 +87,5 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
             default:
                 break;
         }
-    }
-
-    @Subscribe
-    public void startServiceEvent(BackgroundEvent backgroundEvent){
-        if(backgroundEvent.isStartService()){
-            Intent intent = new Intent(HomeActivity.this, BackgroundService.class);
-            startService(intent);
-        }
-    }
-
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
     }
 }

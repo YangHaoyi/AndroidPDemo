@@ -9,10 +9,8 @@
     </style>
 
 
-    <style name="Theme.NotFullActivity" parent="android:style/Theme.Dialog">
-        <item name="android:windowCloseOnTouchOutside">false</item>
-        <item name="android:windowNoTitle">false</item>
-        <item name="android:windowIsFloating">true</item>
+    <style name="Theme.NotFullActivity" parent="Theme.AppCompat.Light">
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
 

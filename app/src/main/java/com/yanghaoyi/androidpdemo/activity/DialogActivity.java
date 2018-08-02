@@ -29,6 +29,5 @@ public class DialogActivity extends FragmentActivity{
         attributes.height = 800;
         getWindow().setAttributes(attributes);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL, WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 }

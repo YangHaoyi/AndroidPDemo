@@ -1,15 +1,15 @@
 package com.yanghaoyi.androidpdemo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.yanghaoyi.androidpdemo.R;
-import com.yanghaoyi.androidpdemo.event.BackgroundEvent;
-
-import org.greenrobot.eventbus.EventBus;
+import com.yanghaoyi.androidpdemo.service.BackgroundService;
 
 /**
  * @author : YangHaoYi on 2018/8/2.
@@ -20,6 +20,7 @@ import org.greenrobot.eventbus.EventBus;
  */
 public class BackGroundStartServiceActivity extends FragmentActivity implements View.OnClickListener {
 
+    private static final int DELAY_TIME = 5000;
     private TextView tvSendEventBus;
 
 
@@ -48,7 +49,13 @@ public class BackGroundStartServiceActivity extends FragmentActivity implements 
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.tvSendEventBus:
-                EventBus.getDefault().post(new BackgroundEvent().setStartService(true));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(BackGroundStartServiceActivity.this, BackgroundService.class);
+                        startService(intent);
+                    }
+                },DELAY_TIME);
                 break;
         }
     }

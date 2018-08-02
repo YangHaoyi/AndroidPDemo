@@ -21,7 +21,7 @@
 
         <activity android:name=".activity.ForegroundActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.BroadCastActivity"/>
-        <activity android:name=".activity.DialogActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NotFullActivity"/>
+        <activity android:name=".activity.DialogActivity" android:screenOrientation="landscape" android:theme="@style/Theme.NotFullActivity"/>
         <activity android:name=".activity.ServiceToActivity"/>
         <activity android:name=".activity.BackGroundStartServiceActivity"/>
         <activity android:name=".activity.NotSDKInterfaceActivity"/>
