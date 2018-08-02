@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.yanghaoyi.androidpdemo.R;
+import com.yanghaoyi.androidpdemo.event.BackgroundEvent;
+import com.yanghaoyi.androidpdemo.service.BackgroundService;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 /**
  * @author : YangHaoYi on 2018/8/1.
@@ -20,6 +25,9 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
 
     private TextView tvToForeground;
     private TextView tvToBroadCast;
+    private TextView tvToDialog;
+    private TextView tvToServiceToActivity;
+    private TextView tvToBackgroundStartService;
 
 
     @Override
@@ -37,11 +45,18 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private void initView(){
         tvToBroadCast = findViewById(R.id.tvToBroadCast);
         tvToForeground = findViewById(R.id.tvToForeground);
+        tvToDialog = findViewById(R.id.tvToDialog);
+        tvToServiceToActivity = findViewById(R.id.tvToServiceToActivity);
+        tvToBackgroundStartService = findViewById(R.id.tvToBackgroundStartService);
     }
 
     private void initEvent(){
+        EventBus.getDefault().register(this);
         tvToForeground.setOnClickListener(this);
         tvToBroadCast.setOnClickListener(this);
+        tvToDialog.setOnClickListener(this);
+        tvToServiceToActivity.setOnClickListener(this);
+        tvToBackgroundStartService.setOnClickListener(this);
     }
 
     @Override
@@ -56,8 +71,36 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
                 intent = new Intent(HomeActivity.this,BroadCastActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.tvToDialog:
+                intent = new Intent(HomeActivity.this,DialogActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tvToServiceToActivity:
+                intent = new Intent(HomeActivity.this,ServiceToActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.tvToBackgroundStartService:
+                intent = new Intent(HomeActivity.this,BackGroundStartServiceActivity.class);
+                startActivity(intent);
+                break;
             default:
                 break;
         }
+    }
+
+    @Subscribe
+    public void startServiceEvent(BackgroundEvent backgroundEvent){
+        if(backgroundEvent.isStartService()){
+            Intent intent = new Intent(HomeActivity.this, BackgroundService.class);
+            startService(intent);
+        }
+    }
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }

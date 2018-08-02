@@ -19,9 +19,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.ForegroundActivity"/>
+        <activity android:name=".activity.ForegroundActivity" android:screenOrientation="portrait"/>
         <activity android:name=".activity.BroadCastActivity"/>
+        <activity android:name=".activity.DialogActivity" android:screenOrientation="portrait" android:theme="@style/Theme.NotFullActivity"/>
+        <activity android:name=".activity.ServiceToActivity"/>
+        <activity android:name=".activity.BackGroundStartServiceActivity"/>
+
         <service android:name=".service.ForegroundService"/>
+        <service android:name=".service.BackgroundService"/>
+        <service android:name=".service.ToActivityService"/>
 
     </application>
 

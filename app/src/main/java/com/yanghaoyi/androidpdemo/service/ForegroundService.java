@@ -28,16 +28,11 @@ public class ForegroundService extends Service{
     @Override
     public void onCreate() {
         super.onCreate();
-
         String channelID = "1";
-
         String channelName = "channel_name";
-
         NotificationChannel channel = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_HIGH);
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
         manager.createNotificationChannel(channel);
-
         Intent intent = new Intent(this, ForegroundActivity.class);
         PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
         Notification notification = new NotificationCompat.Builder(this)
@@ -50,7 +45,6 @@ public class ForegroundService extends Service{
                 .setContentIntent(pi)
                 .build();
         startForeground(1, notification);
-
     }
 
 
